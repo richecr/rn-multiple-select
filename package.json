@@ -1,0 +1,28 @@
+{
+  "name": "rn-multiple-select",
+  "version": "0.1.0",
+  "description": "Repository for the multi-selection library code for React Native",
+  "main": "src/SelectMultiple.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rickecr/rn-multiple-select.git"
+  },
+  "keywords": [
+    "react-native",
+    "select",
+    "multiple",
+    "lib"
+  ],
+  "author": "Rick Elton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rickecr/rn-multiple-select/issues"
+  },
+  "homepage": "https://github.com/Rickecr/rn-multiple-select#readme",
+  "peerDependencies": {
+    "react-native-elements": "^1.2.7"
+  }
+}
