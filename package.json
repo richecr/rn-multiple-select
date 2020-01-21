@@ -22,7 +22,7 @@
     "url": "https://github.com/Rickecr/rn-multiple-select/issues"
   },
   "homepage": "https://github.com/Rickecr/rn-multiple-select#readme",
-  "peerDependencies": {
+  "dependencies": {
     "react-native-elements": "^1.2.7"
   }
 }

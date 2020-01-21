@@ -10,7 +10,7 @@ const SelectMultiple = (props) => {
 		preprocessOption();
 	}, []);
 
-	preprocessOption = () => {
+	function preprocessOption() {
 		const aux = [];
 		props.options.forEach(e => {
 			const op = { label: e.label, value: e.value, checked: false, nomeCategoria: e.nomeCategoria };
@@ -20,13 +20,14 @@ const SelectMultiple = (props) => {
 		setOptionsSelect(aux);
 	}
 
-	onSelected = (data, item) => {
+	function onSelected(data, item) {
 		const aux = [];
 		data.forEach(element => {
 			if(element.checked){
 				aux.push(element);
 			}
 		});
+
 		props.onSelected(aux, item);
 	}
 
