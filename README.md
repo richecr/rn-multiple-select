@@ -1,4 +1,4 @@
-# rn-multiple-select
+# [rn-multiple-select](https://www.npmjs.com/package/rn-multiple-select)
 Repositório para o código da biblioteca de seleção múltipla para o React Native
 
 ## Install
