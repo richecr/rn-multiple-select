@@ -1,3 +1,5 @@
+![npm](https://img.shields.io/npm/dm/rn-multiple-select?style=for-the-badge)
+![npm](https://img.shields.io/npm/v/rn-multiple-select?style=for-the-badge)
 # [rn-multiple-select](https://www.npmjs.com/package/rn-multiple-select)
 Repositório para o código da biblioteca de seleção múltipla para o React Native
 
