@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {View} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View } from 'react-native';
 
-import {CheckBox} from 'react-native-elements';
+import { CheckBox } from 'react-native-elements';
+
+import PropTypes from 'prop-types';
 
 const SelectMultiple = props => {
   const [optionsSelect, setOptionsSelect] = useState([]);
@@ -11,7 +13,7 @@ const SelectMultiple = props => {
   }, []);
 
   function preprocessOption() {
-    const {options} = props;
+    const { options } = props;
 
     const aux = [];
     options.forEach(e => {
@@ -71,6 +73,17 @@ const SelectMultiple = props => {
       )}
     </View>
   );
+};
+
+SelectMultiple.propTypes = {
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string,
+      nomeCategoria: PropTypes.string,
+    })
+  ).isRequired,
+  onSelected: PropTypes.func.isRequired,
 };
 
 export default SelectMultiple;
