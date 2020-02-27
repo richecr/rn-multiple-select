@@ -6,45 +6,47 @@ import { CheckBox } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
 const SelectMultiple = props => {
-  const [optionsSelect, setOptionsSelect] = useState([]);
+  const [optionsToSelect, setOptionsToSelect] = useState([]);
 
   useEffect(() => {
-    preprocessOption();
+    loadOptions();
   }, []);
 
-  function preprocessOption() {
+  function loadOptions() {
     const { options } = props;
 
     const aux = [];
     options.forEach(e => {
-      const op = {
+      aux.push({
         label: e.label,
         value: e.value,
         checked: false,
-        nomeCategoria: e.nomeCategoria,
-      };
-      aux.push(op);
+      });
     });
 
-    setOptionsSelect(aux);
+    setOptionsToSelect(aux);
   }
 
-  function onSelected(data, item) {
-    const aux = [];
-    data.forEach(element => {
-      if (element.checked) {
-        aux.push(element);
-      }
-    });
+  function onSelected(item) {
+    const optionsSelected = optionsToSelect.filter(option => option.checked);
 
-    props.onSelected(aux, item);
+    props.onSelected(optionsSelected, item);
+  }
+
+  function clickCheckbox(e) {
+    const options = [...optionsToSelect];
+    const index = options.indexOf(e);
+    options[index].checked = !e.checked;
+
+    setOptionsToSelect(options);
+    onSelected(e);
   }
 
   return (
     <View>
-      {optionsSelect.length > 0 && (
+      {optionsToSelect.length > 0 && (
         <View>
-          {optionsSelect.map(e => (
+          {optionsToSelect.map(e => (
             <CheckBox
               containerStyle={{
                 backgroundColor: 'transparent',
@@ -53,20 +55,7 @@ const SelectMultiple = props => {
               key={e.value}
               title={e.label}
               checked={e.checked}
-              onPress={() => {
-                const c = [];
-                optionsSelect.forEach(el => {
-                  if (e !== el) {
-                    c.push(el);
-                  } else {
-                    e.checked = !e.checked;
-                    c.push(e);
-                  }
-                });
-
-                setOptionsSelect(c);
-                onSelected(optionsSelect, e);
-              }}
+              onPress={() => clickCheckbox(e)}
             />
           ))}
         </View>
