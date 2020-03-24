@@ -32,6 +32,7 @@ module.exports = {
     ],
     'import/prefer-default-export': 'off',
     'import/no-unresolved': 'off',
-    'no-use-before-define': 'off'
+    'no-use-before-define': 'off',
+    'react/require-default-props': 'off'
   },
 };

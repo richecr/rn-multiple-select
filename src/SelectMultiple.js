@@ -48,10 +48,17 @@ const SelectMultiple = props => {
         <View>
           {optionsToSelect.map(e => (
             <CheckBox
-              containerStyle={{
-                backgroundColor: 'transparent',
-                borderColor: 'transparent',
-              }}
+              iconType={props.iconType}
+              size={props.size}
+              iconRight={props.iconRight}
+              checkedIcon={props.checkedIcon}
+              uncheckedIcon={props.uncheckedIcon}
+              checkedTitle={props.checkedTitle}
+              containerStyle={props.styles.containerStyle}
+              textStyle={props.styles.textStyle}
+              checkedColor={props.styles.checkedColor}
+              uncheckedColor={props.styles.uncheckedColor}
+              fontFamily={props.styles.fontFamily}
               key={e.value}
               title={e.label}
               checked={e.checked}
@@ -64,6 +71,15 @@ const SelectMultiple = props => {
   );
 };
 
+SelectMultiple.defaultProps = {
+  styles: {
+    containerStyle: {
+      backgroundColor: 'transparent',
+      borderColor: 'transparent',
+    },
+  },
+};
+
 SelectMultiple.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -73,6 +89,19 @@ SelectMultiple.propTypes = {
     })
   ).isRequired,
   onSelected: PropTypes.func.isRequired,
+  styles: PropTypes.shape({
+    containerStyle: PropTypes.object,
+    textStyle: PropTypes.object,
+    checkedColor: PropTypes.string,
+    uncheckedColor: PropTypes.string,
+    fontFamily: PropTypes.string,
+  }),
+  iconType: PropTypes.string,
+  size: PropTypes.number,
+  iconRight: PropTypes.bool,
+  checkedIcon: PropTypes.string,
+  uncheckedIcon: PropTypes.string,
+  checkedTitle: PropTypes.string,
 };
 
 export default SelectMultiple;
