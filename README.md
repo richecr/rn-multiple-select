@@ -20,7 +20,7 @@ $ npm i rn-multiple-select
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import SelectMultiple from "rn-multiple-select";
+import SelectMultiple from "./SelectMultiple";
 
 export default function App() {
   const [dados, setDados] = useState([
@@ -65,6 +65,14 @@ export default function App() {
       <SelectMultiple
         options={dados}
         onSelected={onSelectionsChange} 
+        styles={{
+          containerStyle: {
+            backgroundColor: 'transparent',
+            borderColor: 'transparent',
+          },
+          checkedColor: 'green',
+        }}
+        size={24}
       />
     </View>
   );
@@ -85,5 +93,19 @@ const styles = StyleSheet.create({
 
 | Prop                        | Default | type     | Desc                                                                                                               |
 | --------------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
-| options | null | `array` de `objects` | The items |
+| options | null | `array` of `object` | The items |
 | onSelected | null | `funct` | Função a ser chamada após um item ser selecionado, passando os items selecionados e o novo item que foi clicado, seja selecionando ou deselecionando o item. |
+| styles | {} | `object` | Estilização para os checkboxs |
+| iconType | 'font-awesome' | `string` | Tipo do ícone |
+| size | 24 | `number` | Tamanho da caixa de seleção |
+| iconRight | false | `boolean` | Ícone a direita do texto |
+| checkedIcon | 'check-square-o' | `string` ou `React Native Component` | Ícone padrão marcado |
+| uncheckedIcon | 'square-o' | `string` ou `React Native Component` | Ícone padrão desmarcado |
+| checkedTitle | none | `string` | Especifique uma mensagem para um checkbox marcado |
+
+- Props de `styles`:
+    - `containerStyle`: Estilo do container principal do checkbox(background e etc).
+    - `textStyle`: Estilo do texto.
+    - `checkedColor`: Cor padrão para um item selecionado.
+    - `uncheckedColor`: Cor padrão para um item deselecionado.
+    - `fontFamily`: A font-family dos textos.
