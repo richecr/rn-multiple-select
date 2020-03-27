@@ -23,8 +23,7 @@
     "lib"
   ],
   "peerDependencies": {
-    "prop-types": "^15.7.2",
-    "react-native-elements": "^1.2.7"
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
@@ -37,5 +36,8 @@
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "prettier": "^1.19.1"
+  },
+  "dependencies": {
+    "react-native-elements": "^1.2.7"
   }
 }
