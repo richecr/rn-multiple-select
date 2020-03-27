@@ -1,12 +1,18 @@
 ![npm](https://img.shields.io/npm/dm/rn-multiple-select?style=for-the-badge)
 ![npm](https://img.shields.io/npm/v/rn-multiple-select?style=for-the-badge)
 # [rn-multiple-select](https://www.npmjs.com/package/rn-multiple-select)
-Repositório para o código da biblioteca de seleção múltipla para o React Native
+Library for customizing a multiple option selector for React Native
 
 ## Install
 
 ```shell
-$ npm i rn-multiple-select
+$ npm install rn-multiple-select
+```
+
+ou
+
+```shell
+$ yarn add rn-multiple-select
 ```
 
 ## Required Props
@@ -23,36 +29,30 @@ import { StyleSheet, Text, View } from 'react-native';
 import SelectMultiple from "./SelectMultiple";
 
 export default function App() {
-  const [dados, setDados] = useState([
+  const [data, setData] = useState([
     {
-      label: "Arroz branco", 
-      value: "1",
-      nomeCategoria: "Arroz"
+      label: "White rice", 
+      value: "1"
     },
     {
-      label: "Arroz refogado", 
-      value: "2",
-      nomeCategoria: "Arroz"
+      label: "Black bean", 
+      value: "2"
     },
     {
-      label: "Feijão preto", 
-      value: "3",
-      nomeCategoria: "Feijões"
+      label: "Sauteed rice", 
+      value: "3"
     },
     {
-      label: "Feijão carioquinha", 
-      value: "4",
-      nomeCategoria: "Feijões"
+      label: "Baked beans", 
+      value: "4"
     },
     {
-      label: "Parafuso", 
-      value: "5",
-      nomeCategoria: "Macarrão"
+      label: "Spaghetti", 
+      value: "5"
     },
     {
-      label: "Macarrão no molho", 
-      value: "6",
-      nomeCategoria: "Macarrão"
+      label: "Pasta in sauce", 
+      value: "6"
     },
   ]);
 
@@ -63,7 +63,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <SelectMultiple
-        options={dados}
+        options={data}
         onSelected={onSelectionsChange} 
         styles={{
           containerStyle: {
@@ -91,21 +91,21 @@ const styles = StyleSheet.create({
 
 ## Properties
 
-| Prop                        | Default | type     | Desc                                                                                                               |
-| --------------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| Prop                        | Default | type     | Desc |
+| --------------------------- | ------- | -------- | ---- |
 | options | null | `array` of `object` | The items |
-| onSelected | null | `funct` | Função a ser chamada após um item ser selecionado, passando os items selecionados e o novo item que foi clicado, seja selecionando ou deselecionando o item. |
-| styles | {} | `object` | Estilização para os checkboxs |
-| iconType | 'font-awesome' | `string` | Tipo do ícone |
-| size | 24 | `number` | Tamanho da caixa de seleção |
-| iconRight | false | `boolean` | Ícone a direita do texto |
-| checkedIcon | 'check-square-o' | `string` ou `React Native Component` | Ícone padrão marcado |
-| uncheckedIcon | 'square-o' | `string` ou `React Native Component` | Ícone padrão desmarcado |
-| checkedTitle | none | `string` | Especifique uma mensagem para um checkbox marcado |
+| onSelected | null | `funct` | Function to be called after an item is selected, passing the selected items and the new item that was clicked, either selecting or deselecting the item |
+| styles | {} | `object` | Stylization for checkboxes |
+| iconType | 'font-awesome' | `string` | Type of Icon |
+| size | 24 | `number` | Check box size |
+| iconRight | false | `boolean` | Icon to the right of the text |
+| checkedIcon | 'check-square-o' | `string` ou `React Native Component` | Default icon checked |
+| uncheckedIcon | 'square-o' | `string` ou `React Native Component` | Default icon unchecked |
+| checkedTitle | none | `string` | Specify a message for a marked checkbox |
 
-- Props de `styles`:
-    - `containerStyle`: Estilo do container principal do checkbox(background e etc).
-    - `textStyle`: Estilo do texto.
-    - `checkedColor`: Cor padrão para um item selecionado.
-    - `uncheckedColor`: Cor padrão para um item deselecionado.
-    - `fontFamily`: A font-family dos textos.
+- Prop of `styles`:
+    - `containerStyle`: Checkbox main container style (background and etc).
+    - `textStyle`: Style of text.
+    - `checkedColor`: Default color for a selected item.
+    - `uncheckedColor`: Default color for a unselected item.
+    - `fontFamily`: The font-family of texts.
