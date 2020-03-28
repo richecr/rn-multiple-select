@@ -1,7 +1,7 @@
 ![npm](https://img.shields.io/npm/dm/rn-multiple-select?style=for-the-badge)
 ![npm](https://img.shields.io/npm/v/rn-multiple-select?style=for-the-badge)
 # [rn-multiple-select](https://www.npmjs.com/package/rn-multiple-select)
-Library for customizing a multiple option selector for React Native
+Library for creating a custom multiple option selector for React Native
 
 ## Install
 
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
 
 ## Properties
 
-| Prop                        | Default | type     | Desc |
+| Prop                        | Default |   type   | Desciption |
 | --------------------------- | ------- | -------- | ---- |
 | options | null | `array` of `object` | The items |
 | onSelected | null | `funct` | Function to be called after an item is selected, passing the selected items and the new item that was clicked, either selecting or deselecting the item |
