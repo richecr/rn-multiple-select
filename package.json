@@ -1,6 +1,6 @@
 {
   "name": "rn-multiple-select",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Repository for the multi-selection library code for React Native",
   "author": "Rick Elton",
   "license": "MIT",
