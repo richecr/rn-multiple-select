@@ -27,7 +27,7 @@ $ yarn add rn-multiple-select
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import SelectMultiple from "rn-multiple-select/";
+import SelectMultiple from "rn-multiple-select";
 
 export default function App() {
   const [data, setData] = useState([
@@ -89,6 +89,10 @@ const styles = StyleSheet.create({
 });
 
 ```
+
+### Example:
+
+![Imgur](https://i.imgur.com/eOFbPiX.jpg)
 
 ## Properties
 
