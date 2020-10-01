@@ -1,6 +1,7 @@
+# [rn-multiple-select](https://www.npmjs.com/package/rn-multiple-select)
 ![npm](https://img.shields.io/npm/dm/rn-multiple-select?style=for-the-badge)
 ![npm](https://img.shields.io/npm/v/rn-multiple-select?style=for-the-badge)
-# [rn-multiple-select](https://www.npmjs.com/package/rn-multiple-select)
+
 Library for creating a custom multiple option selector for React Native
 
 ## Install
@@ -9,7 +10,7 @@ Library for creating a custom multiple option selector for React Native
 $ npm install rn-multiple-select
 ```
 
-ou
+or
 
 ```shell
 $ yarn add rn-multiple-select
@@ -26,7 +27,7 @@ $ yarn add rn-multiple-select
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import SelectMultiple from "./SelectMultiple";
+import SelectMultiple from "rn-multiple-select";
 
 export default function App() {
   const [data, setData] = useState([
@@ -88,6 +89,10 @@ const styles = StyleSheet.create({
 });
 
 ```
+
+### Example:
+
+![Imgur](https://i.imgur.com/eOFbPiX.jpg)
 
 ## Properties
 
