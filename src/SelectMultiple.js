@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { View, ToastAndroid } from 'react-native';
 
 import { CheckBox } from 'react-native-elements';
 
 import PropTypes from 'prop-types';
 
-const SelectMultiple = props => {
+const SelectMultiple = (props) => {
   const [optionsToSelect, setOptionsToSelect] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const SelectMultiple = props => {
     const { options } = props;
 
     const aux = [];
-    options.forEach(e => {
+    options.forEach((e) => {
       aux.push({
         label: e.label,
         value: e.value,
@@ -27,8 +27,12 @@ const SelectMultiple = props => {
     setOptionsToSelect(aux);
   }
 
+  function getOptionsSelected() {
+    return optionsToSelect.filter((option) => option.checked).length;
+  }
+
   function onSelected(item) {
-    const optionsSelected = optionsToSelect.filter(option => option.checked);
+    const optionsSelected = optionsToSelect.filter((option) => option.checked);
 
     props.onSelected(optionsSelected, item);
   }
@@ -38,15 +42,20 @@ const SelectMultiple = props => {
     const index = options.indexOf(e);
     options[index].checked = !e.checked;
 
-    setOptionsToSelect(options);
-    onSelected(e);
+    if (getOptionsSelected() > props.maxSelected) {
+      options[index].checked = !e.checked;
+      ToastAndroid.show(props.messageMaxSelected, ToastAndroid.SHORT);
+    } else {
+      setOptionsToSelect(options);
+      onSelected(e);
+    }
   }
 
   return (
     <View>
       {optionsToSelect.length > 0 && (
         <View>
-          {optionsToSelect.map(e => (
+          {optionsToSelect.map((e) => (
             <CheckBox
               iconType={props.iconType}
               size={props.size}
@@ -78,6 +87,7 @@ SelectMultiple.defaultProps = {
       borderColor: 'transparent',
     },
   },
+  messageMaxSelected: 'Maximum items already selected',
 };
 
 SelectMultiple.propTypes = {
@@ -88,6 +98,8 @@ SelectMultiple.propTypes = {
       nomeCategoria: PropTypes.string,
     })
   ).isRequired,
+  messageMaxSelected: PropTypes.string,
+  maxSelected: PropTypes.number,
   onSelected: PropTypes.func.isRequired,
   styles: PropTypes.shape({
     containerStyle: PropTypes.object,
