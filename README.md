@@ -5,6 +5,7 @@
 Library for creating a custom multiple option selector for React Native
 
 ## Install
+### Step 1
 
 ```shell
 $ npm install rn-multiple-select
@@ -14,6 +15,17 @@ or
 
 ```shell
 $ yarn add rn-multiple-select
+```
+### Step 2
+Install react-native-vector-icons (for icons) package as a dependecy
+
+```shell
+$ npm install --save react-native-vector-icons
+```
+### Step 3
+
+```shell
+$ react-native link react-native-vector-icons
 ```
 
 ## Required Props
