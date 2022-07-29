@@ -36,54 +36,57 @@ $ react-native link react-native-vector-icons
 ## Basic Example
 
 ```js
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 import SelectMultiple from "rn-multiple-select";
 
 export default function App() {
   const [data, setData] = useState([
     {
-      label: "White rice", 
-      value: "1"
+      label: "White rice",
+      value: "1",
     },
     {
-      label: "Black bean", 
-      value: "2"
+      label: "Black bean",
+      value: "2",
     },
     {
-      label: "Sauteed rice", 
-      value: "3"
+      label: "Sauteed rice",
+      value: "3",
     },
     {
-      label: "Baked beans", 
-      value: "4"
+      label: "Baked beans",
+      value: "4",
     },
     {
-      label: "Spaghetti", 
-      value: "5"
+      label: "Spaghetti",
+      value: "5",
     },
     {
-      label: "Pasta in sauce", 
-      value: "6"
+      label: "Pasta in sauce",
+      value: "6",
     },
   ]);
 
   function onSelectionsChange(data, item) {
-    console.log(data, item); 
+    console.log(data, item);
   }
 
   return (
     <View style={styles.container}>
+      <Text>Test rn-multiple-select</Text>
       <SelectMultiple
         options={data}
-        onSelected={onSelectionsChange} 
+        onSelected={onSelectionsChange}
+        messageMaxSelected="Máximo de itens selecionados!"
+        maxSelected={2}
         styles={{
           containerStyle: {
-            backgroundColor: 'transparent',
-            borderColor: 'transparent',
+            backgroundColor: "transparent",
+            borderColor: "transparent",
           },
-          checkedColor: 'green',
+          checkedColor: "green",
         }}
         size={24}
       />
@@ -94,9 +97,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
